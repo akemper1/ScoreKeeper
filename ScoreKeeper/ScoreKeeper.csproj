@@ -11,4 +11,9 @@
     <PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Styles\" />
+  </ItemGroup>
+
 </Project>
