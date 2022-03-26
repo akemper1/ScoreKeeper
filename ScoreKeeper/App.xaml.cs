@@ -30,6 +30,9 @@ namespace ScoreKeeper
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<NewGamePage, NewGamePageViewModel>();
+            containerRegistry.RegisterForNavigation<SettingsPage, SettingsPageViewModel>();
+            containerRegistry.RegisterForNavigation<GameHistoryPage, GameHistoryPageViewModel>();
         }
 
         private void SetAppTheme()
