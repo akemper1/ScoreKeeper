@@ -2,6 +2,7 @@ using Prism;
 using Prism.Ioc;
 using ScoreKeeper.ViewModels;
 using ScoreKeeper.Views;
+using Xamarin.Essentials;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
@@ -18,6 +19,7 @@ namespace ScoreKeeper
         protected override async void OnInitialized()
         {
             InitializeComponent();
+            SetAppTheme();
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
@@ -28,6 +30,14 @@ namespace ScoreKeeper
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+        }
+
+        private void SetAppTheme()
+        {
+            var theme = Preferences.Get("theme", string.Empty);
+
+            // If there is no preference already set, or the theme is set to light, make the app lightmode otherwise dark mode.
+            Application.Current.UserAppTheme = string.IsNullOrEmpty(theme) || theme == "light" ? OSAppTheme.Light : OSAppTheme.Dark;
         }
     }
 }
