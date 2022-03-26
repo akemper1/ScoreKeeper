@@ -1,14 +1,16 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ScoreKeeper.ViewModels
 {
-    public class SettingsPageViewModel : BindableBase
+    public class SettingsPageViewModel : ViewModelBase
     {
-        public SettingsPageViewModel()
+        public SettingsPageViewModel(INavigationService navigationService)
+            : base(navigationService)
         {
 
         }
