@@ -5,17 +5,10 @@
              x:DataType="viewmodels:MainPageViewModel"
              x:Class="ScoreKeeper.Views.MainPage"
              NavigationPage.HasNavigationBar="False"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
 
-    <StackLayout BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
-                 Padding="0, 20, 0, 0">
-        <Label
-                    Text="&#xf060;"
-                    FontSize="{StaticResource Headline4FontSize}"
-                    FontFamily="FontAwesome_Solid"
-                    TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Center"></Label>
+    <StackLayout Padding="0, 20, 0, 0">
         <Label Text="{Binding Title}"
                Style="{StaticResource Headline4_MulishBlack}"
                Margin="10, 0, 0, 0"
