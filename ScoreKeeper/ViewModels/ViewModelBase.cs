@@ -1,15 +1,19 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Xamarin.CommunityToolkit.UI.Views;
 
 namespace ScoreKeeper.ViewModels
 {
     public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }
+
+        private LayoutState _mainState;
+        public LayoutState MainState 
+        { 
+            get { return _mainState; }
+            set { SetProperty(ref _mainState, value); }
+        }
 
         private string _title;
         public string Title
