@@ -1,11 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:ScoreKeeper.ViewModels" 
+             x:DataType="viewmodels:MainPageViewModel"
              x:Class="ScoreKeeper.Views.MainPage"
+             NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
+    <StackLayout BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
+                 Padding="0, 20, 0, 0">
+        <Label
+                    Text="&#xf060;"
+                    FontSize="{StaticResource Headline4FontSize}"
+                    FontFamily="FontAwesome_Solid"
+                    TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"></Label>
+        <Label Text="{Binding Title}"
+               Style="{StaticResource Headline4_MulishBlack}"
+               Margin="10, 0, 0, 0"
+               VerticalOptions="Center"
+               HorizontalOptions="CenterAndExpand"/>
+        <Grid RowDefinitions="Auto, Auto"
+              Margin="0, 0, 0, 10"
+              HorizontalOptions="FillAndExpand"
+              VerticalOptions="CenterAndExpand">
+            <Button Grid.Row="0"
+                    Command="{Binding NewGameCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="20, 0, 20, 10"
+                    Text="New Game"
+                    Style="{StaticResource Base_Button}"/>
+            <Button Grid.Row="1"
+                    Command="{Binding GamesListCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="20, 0, 20, 10"
+                    Text="Games Played"
+                    Style="{StaticResource Base_Button}"/>
+            <Button Grid.Row="2"
+                    Command="{Binding PlayersListCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="20, 0, 20, 10"
+                    Text="Players"
+                    Style="{StaticResource Base_Button}"/>
+            <Button Grid.Row="3"
+                    Command="{Binding SettingsCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Margin="20, 0, 20, 10"
+                    Text="Settings"
+                    Style="{StaticResource Base_Button}"/>
+        </Grid>
     </StackLayout>
 
 </ContentPage>

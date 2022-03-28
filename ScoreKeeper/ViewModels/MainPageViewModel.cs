@@ -15,6 +15,9 @@ namespace ScoreKeeper.ViewModels
         private readonly INavigationService _navigationService;
 
         public AsyncCommand NewGameCommand {get; set;}
+        public AsyncCommand GamesListCommand { get; set; }
+        public AsyncCommand PlayersListCommand { get; set; }
+        public AsyncCommand SettingsCommand { get; set; }
 
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
@@ -24,6 +27,24 @@ namespace ScoreKeeper.ViewModels
             Title = "Main Page";
 
             NewGameCommand = new AsyncCommand(ExecuteNewGame, allowsMultipleExecutions: false);
+            GamesListCommand = new AsyncCommand(ExecuteGamesList, allowsMultipleExecutions: false);
+            PlayersListCommand = new AsyncCommand(ExecutePlayersList, allowsMultipleExecutions: false);
+            SettingsCommand = new AsyncCommand(ExecuteSettings, allowsMultipleExecutions: false);
+        }
+
+        private async Task ExecuteSettings()
+        {
+            await _navigationService.NavigateAsync("SettingsPage");
+        }
+
+        private async Task ExecutePlayersList()
+        {
+            await _navigationService.NavigateAsync("PlayersListPage");
+        }
+
+        private async Task ExecuteGamesList()
+        {
+            await _navigationService.NavigateAsync("GameHistoryPage");
         }
 
         private async Task ExecuteNewGame()

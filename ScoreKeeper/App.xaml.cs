@@ -1,4 +1,5 @@
 using Prism;
+using Prism.DryIoc;
 using Prism.Ioc;
 using ScoreKeeper.ViewModels;
 using ScoreKeeper.Views;
@@ -21,7 +22,7 @@ using Xamarin.Forms;
 
 namespace ScoreKeeper
 {
-    public partial class App
+    public partial class App : PrismApplication
     {
         public App(IPlatformInitializer initializer)
             : base(initializer)
@@ -45,6 +46,7 @@ namespace ScoreKeeper
             containerRegistry.RegisterForNavigation<NewGamePage, NewGamePageViewModel>();
             containerRegistry.RegisterForNavigation<SettingsPage, SettingsPageViewModel>();
             containerRegistry.RegisterForNavigation<GameHistoryPage, GameHistoryPageViewModel>();
+            containerRegistry.RegisterForNavigation<PlayersListPage, PlayersListPageViewModel>();
         }
 
         private void SetAppTheme()
