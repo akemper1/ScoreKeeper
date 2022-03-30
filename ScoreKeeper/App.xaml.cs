@@ -34,7 +34,7 @@ namespace ScoreKeeper
             InitializeComponent();
             SetAppTheme();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("/NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

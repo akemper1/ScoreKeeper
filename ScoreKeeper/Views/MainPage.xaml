@@ -6,11 +6,12 @@
              xmlns:fragments="clr-namespace:ScoreKeeper.Views.Fragments"
              x:DataType="viewmodels:MainPageViewModel"
              x:Class="ScoreKeeper.Views.MainPage"
-             NavigationPage.HasNavigationBar="False"
-             Title="{Binding Title}">
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             NavigationPage.HasNavigationBar="False">
 
     <StackLayout BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
-                 Padding="0, 20, 0, 0"
+                 Padding="0, 30, 0, 0"
                  xct:StateLayout.CurrentState="{Binding MainState}">
         <xct:StateLayout.StateViews>
             <xct:StateView 
@@ -20,12 +21,12 @@
             </xct:StateView>
         </xct:StateLayout.StateViews>
         <Label Text="{Binding Title}"
-               Style="{StaticResource Headline4_MulishBlack}"
+               Style="{StaticResource Headline2_FontAwesome}"
                Margin="10, 0, 0, 0"
                VerticalOptions="Center"
                HorizontalOptions="CenterAndExpand"/>
         <Grid RowDefinitions="Auto, Auto"
-              Margin="0, 0, 0, 10"
+              Margin="0, 0, 0, 50"
               HorizontalOptions="FillAndExpand"
               VerticalOptions="CenterAndExpand">
             <Button Grid.Row="0"

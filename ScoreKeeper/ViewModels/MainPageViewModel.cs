@@ -19,7 +19,7 @@ namespace ScoreKeeper.ViewModels
         {
             _navigationService = navigationService;
 
-            Title = "Main Page";
+            Title = "Score Keeper";
 
             NewGameCommand = new AsyncCommand(ExecuteNewGame, allowsMultipleExecutions: false);
             GamesListCommand = new AsyncCommand(ExecuteGamesList, allowsMultipleExecutions: false);
