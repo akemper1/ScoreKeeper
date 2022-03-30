@@ -27,8 +27,14 @@ namespace ScoreKeeper.ViewModels
             SettingsCommand = new AsyncCommand(ExecuteSettings, allowsMultipleExecutions: false);
         }
 
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            MainState = LayoutState.None;
+        }
+
         private async Task ExecuteSettings()
         {
+            MainState = LayoutState.Loading;
             await _navigationService.NavigateAsync("SettingsPage");
         }
 

@@ -6,10 +6,10 @@
              xmlns:fragments="clr-namespace:ScoreKeeper.Views.Fragments"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="ScoreKeeper.Views.NewGamePage"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <Grid xct:StateLayout.CurrentState="{Binding MainState}"
+        <Grid BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
+              xct:StateLayout.CurrentState="{Binding MainState}"
               xct:StateLayout.AnimateStateChanges="True">
             <xct:StateLayout.StateViews>
                 <xct:StateView StateKey="Loading"

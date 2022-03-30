@@ -7,10 +7,18 @@
              x:DataType="viewmodels:MainPageViewModel"
              x:Class="ScoreKeeper.Views.MainPage"
              NavigationPage.HasNavigationBar="False"
-             Title="{Binding Title}"
-             BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
+             Title="{Binding Title}">
 
-    <StackLayout Padding="0, 20, 0, 0">
+    <StackLayout BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
+                 Padding="0, 20, 0, 0"
+                 xct:StateLayout.CurrentState="{Binding MainState}">
+        <xct:StateLayout.StateViews>
+            <xct:StateView 
+                    StateKey="Loading"
+                    VerticalOptions="FillAndExpand">
+                <fragments:LoadingView></fragments:LoadingView>
+            </xct:StateView>
+        </xct:StateLayout.StateViews>
         <Label Text="{Binding Title}"
                Style="{StaticResource Headline4_MulishBlack}"
                Margin="10, 0, 0, 0"
