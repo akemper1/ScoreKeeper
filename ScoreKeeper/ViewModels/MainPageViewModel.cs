@@ -40,16 +40,19 @@ namespace ScoreKeeper.ViewModels
 
         private async Task ExecutePlayersList()
         {
+            MainState = LayoutState.Loading;
             await _navigationService.NavigateAsync("PlayersListPage");
         }
 
         private async Task ExecuteGamesList()
         {
+            MainState = LayoutState.Loading;
             await _navigationService.NavigateAsync("GameHistoryPage");
         }
 
         private async Task ExecuteNewGame()
         {
+            MainState = LayoutState.Loading;
             await _navigationService.NavigateAsync("NewGamePage");
         }
     }

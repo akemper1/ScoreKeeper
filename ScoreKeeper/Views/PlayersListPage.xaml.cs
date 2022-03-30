@@ -2,7 +2,7 @@
 
 namespace ScoreKeeper.Views
 {
-    public partial class PlayersListPage : NavigationPage
+    public partial class PlayersListPage : ContentPage
     {
         public PlayersListPage()
         {
