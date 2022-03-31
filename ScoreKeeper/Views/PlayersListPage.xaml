@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com" xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
              xmlns:fragments="clr-namespace:ScoreKeeper.Views.Fragments"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:viewmodels="clr-namespace:ScoreKeeper.ViewModels" 
+             x:DataType="viewmodels:PlayersListPageViewModel"
              prism:ViewModelLocator.AutowireViewModel="True"
+             ios:Page.UseSafeArea="True"
              NavigationPage.HasNavigationBar="False"
              x:Class="ScoreKeeper.Views.PlayersListPage">
     <ContentPage.Content>
@@ -30,8 +34,34 @@
                     FontFamily="FontAwesome_Solid"
                     TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"
                     HorizontalOptions="Start"
-                    VerticalOptions="Start"></Label>
+                    VerticalOptions="Start"/>
+                <Label Text="{Binding Title}"
+                       Style="{StaticResource Headline4_MulishBold}"
+                       Margin="0, 0, 35, 0"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Center"/>
             </Grid>
+            <Frame 
+                Grid.Row="3" 
+                BackgroundColor="{AppThemeBinding Light={StaticResource LightButtonColor}, Dark={StaticResource DarkButtonColor}}"
+                VerticalOptions="End" 
+                HorizontalOptions="End" 
+                CornerRadius="20" 
+                TranslationY="-20" 
+                TranslationX="-20"
+                Padding="20"
+                xct:TouchEffect.NativeAnimation="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AddCommand}"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+                <Label
+                    Text="&#xf067;"
+                    FontSize="{StaticResource Headline3FontSize}"
+                    FontFamily="FontAwesome_Solid"
+                    TextColor="{AppThemeBinding Light={StaticResource LightButtonTextColor}, Dark={StaticResource DarkButtonTextColor}}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"></Label>
+            </Frame>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

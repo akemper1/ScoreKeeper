@@ -15,13 +15,22 @@ namespace ScoreKeeper.ViewModels
         private readonly INavigationService _navigationService;
 
         public AsyncCommand BackCommand { get; set; }
+        public AsyncCommand AddCommand { get; set; }
 
         public PlayersListPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
             _navigationService = navigationService;
 
+            Title = "Players";
+
             BackCommand = new AsyncCommand(NavigateBack, allowsMultipleExecutions: false);
+            AddCommand = new AsyncCommand(ExecuteAdd, allowsMultipleExecutions: false);
+        }
+
+        private Task ExecuteAdd()
+        {
+            throw new NotImplementedException();
         }
 
         public override void Initialize(INavigationParameters parameters)
