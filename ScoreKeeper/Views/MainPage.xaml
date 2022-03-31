@@ -9,7 +9,6 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
              NavigationPage.HasNavigationBar="False">
-
     <StackLayout BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
                  Padding="0, 30, 0, 0"
                  xct:StateLayout.CurrentState="{Binding MainState}">
@@ -59,5 +58,4 @@
                     Style="{StaticResource Base_Button}"/>
         </Grid>
     </StackLayout>
-
 </ContentPage>
