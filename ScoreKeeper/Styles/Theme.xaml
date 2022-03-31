@@ -7,6 +7,7 @@
         <styles:Colors></styles:Colors>
         <styles:Fonts></styles:Fonts>
     </ResourceDictionary.MergedDictionaries>
+   
     <!--#region Labels-->
 
     <Style x:Key="Headline2_FontAwesome" TargetType="Label">

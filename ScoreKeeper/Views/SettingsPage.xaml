@@ -6,6 +6,10 @@
              xmlns:fragments="clr-namespace:ScoreKeeper.Views.Fragments"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="ScoreKeeper.Views.SettingsPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             xmlns:viewmodels="clr-namespace:ScoreKeeper.ViewModels" 
+             x:DataType="viewmodels:SettingsPageViewModel"
+             ios:Page.UseSafeArea="True"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
@@ -18,21 +22,41 @@
                     <fragments:LoadingView></fragments:LoadingView>
                 </xct:StateView>
             </xct:StateLayout.StateViews>
-            <Grid
-                Grid.Row="0"
-                Margin="20, 20, 0, 20"
-                HorizontalOptions="FillAndExpand">
+            <Grid Grid.Row="0"
+                  Margin="20, 20, 0, 20"
+                  HorizontalOptions="FillAndExpand">
                 <Grid.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding BackCommand}"></TapGestureRecognizer>
                 </Grid.GestureRecognizers>
-                <Label
-                    Text="&#xf060;"
-                    FontSize="{StaticResource Headline4FontSize}"
-                    FontFamily="FontAwesome_Solid"
-                    TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"
-                    HorizontalOptions="Start"
-                    VerticalOptions="Start"></Label>
+                <Label Text="&#xf060;"
+                       FontSize="{StaticResource Headline4FontSize}"
+                       FontFamily="FontAwesome_Solid"
+                       TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start"></Label>
+                <Label Text="{Binding Title}"
+                       Style="{StaticResource Headline4_MulishBold}"
+                       Margin="0, 0, 35, 0"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Center"/>
             </Grid>
+            <StackLayout Grid.Row="2"
+                         Padding="20, 0, 20, 0">
+                <StackLayout Orientation="Horizontal">
+                    <Label Style="{StaticResource Body1_MulishRegular}"
+                           Text="Dark mode"
+                           TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"></Label>
+                    <Switch IsToggled="{Binding IsDarkMode}"
+                            HorizontalOptions="EndAndExpand"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
+                            ThumbColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"
+                            OnColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}">
+                        <Switch.Behaviors>
+                            <xct:EventToCommandBehavior EventName="Toggled" Command="{Binding DarkModeToggleCommand}"></xct:EventToCommandBehavior>
+                        </Switch.Behaviors>
+                    </Switch>
+                </StackLayout>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
