@@ -39,11 +39,14 @@ namespace ScoreKeeper.ViewModels
             DarkModeToggleCommand = new Command(OnIsDarkModeChanged);
         }
 
+        public override void Initialize(INavigationParameters parameters)
+        {
+            IsDarkMode = Application.Current.UserAppTheme.Equals(OSAppTheme.Dark);
+        }
+
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             MainState = LayoutState.None;
-
-            IsDarkMode = Application.Current.UserAppTheme.Equals(OSAppTheme.Dark);
         }
 
         private async Task NavigateBack()
